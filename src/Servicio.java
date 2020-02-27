@@ -25,7 +25,7 @@ public class Servicio {
   }
 
   private void validaPago(Persona persona) {
-    serv.pago(persona);
+    persona.pagar(serv);
   }
 
   public static void main(String[] args) {
