@@ -1,8 +1,11 @@
+package src;
+
+import src.*;
 
 public interface Transacciones {
-  public void pago;
+  public void pago(Persona p);
 
-  public void suscripcion;
+  public void suscripcion(int d, Persona p);
 
-  public void verificaPresupuesto;
+  public void verificaPresupuesto(Persona per);
 }

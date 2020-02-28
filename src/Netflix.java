@@ -1,57 +1,78 @@
+package src;
+
+import java.util.LinkedList;
+import src.*;
+
 
 public class Netflix implements Transacciones {
 
-  boolean primeraVez = True;
+  LinkedList usuarios = new LinkedList<Personas>();
+  LinkedList exusuarios = new LinkedList<Personas>();
+
 
   @Override public void pago(Persona pe) {
-    if(primeraVez) {
-      System.out.println("Bienvenido a la prueba gratis de Netflix");
-      this.primeraVez = false;
-
+    if(!usuarios.contain(pe)) {
+      System.out.println("Bienvenido a la prueba gratis de Netflix.");
+      usuarios.add(pe);
+      pe.listaDeServicios.add(Netflix);
+    } else if(exusuarios.contain(per)) {
+      System.out.println("Bienvenido de vuelta a Netflix.");
+      pe.presupuesto -= suscripcion(tipoSusc, per);
+      exusuarios.remove(per);
+      usuarios.add(per);
+      pe.listaDeServicios.add(Netflix);
+    } else {
+      pe.presupuesto -= suscripcion(tipoSusc, per);
     }
-      per.presupuesto -= suscripcion(tipoSusc, pe);
+
+
+    // Idea al aire que seguro no sirve.
+    // if(pe.presupuesto < 7)
+    //   System.out.println("Saldo insuficiente.");
+    // if(usuarios.contain(pe)) {
+    //   pe.presupuesto -= suscripcion(per.tipoSusc, per);
+    // } else if()
+    //
+    //   System.out.println("Bienvenido a la prueba gratis de Netflix");
+    //   usuarios.add(per);
+    //   return;
+    //
+    //   // per.presupuesto -= suscripcion(pe.tipoSusc, pe);
   }
 
   @Override public int suscripcion(int dispositivos, Persona per) {
     switch (dispositivos) {
       case 1:
-          if(!verificaPresupuesto(per))
-            System.out.println("Saldo insuficiente." + "\n Saldo requerido: $7");
-          // per.presupuesto -= 7;
-          System.out.println("Bienvenido a Netflix, " + per.nombre +" estás en el nivel Básico" + "\n(Costo: $7)");
+          NetflixUno serv = new NetflixUno();
+          serv.pago(per);
           return 7;
         break;
       case 2:
-          if(!verificaPresupuesto(per))
-            System.out.println("Saldo insuficiente." + "\n Saldo requerido: $10");
-          // per.presupuesto -= 10;
-          System.out.println("Bienvenido a Netflix, " + per.nombre +" estás en el nivel Intermedio" + "\n(Costo: $10)");
+          NetflixDos serv = new NetflixDos();
+          serv.pago(per);
           return 10;
         break;
       case 3:
-          if(!verificaPresupuesto(per))
-            System.out.println("Saldo insuficiente." + "\n Saldo requerido: $10");
-          // per.presupuesto -= 15;
-          System.out.println("Bienvenido a Netflix, " + per.nombre +" estás en el nivel Premium" + "\n(Costo: $15)");
+          NetflixTres serv = new NetflixTres();
+          serv.pago(per);
           return 15;
         break;
       default:
         System.out.println("Plan no disponible, pruebe con '1','2'o '3'.");
         break;
     }
-    this.primeraVez = false;
   }
 
   @Override public boolean verificaPresupuesto(Persona per) {
-    if(!per.presupuesto >= 7) {
+    if(!(per.presupuesto >= 7)) {
       return false;
       return true;
     }
-    if(!per.presupuesto >= 10) {
+    if(!(per.presupuesto >= 10)) {
       return false;
       return true;
     }
-     if(!per.presupuesto >= 15) {
+     if(!(per.presupuesto >= 15)) {
        return false;
        return true;
      }

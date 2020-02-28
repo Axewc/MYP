@@ -1,10 +1,13 @@
+package src;
+
 import java.util.LinkedList;
+import src.*;
 
 public class Persona {
   int tiṕoSusc;
   String nombre;
   Double presupuesto;
-  LinkedList listaDeServicios = new LinkedList<Servicio>;
+  LinkedList listaDeServicios = new LinkedList<Servicio>();
   // boolean primeraVez = True;
 
 
@@ -13,15 +16,16 @@ public class Persona {
   }
 
   public boolean suscribirse(Servicio serv, int tipoSusc) {
-    switch (serv) {
-      case Netflix:
-        serv.suscripcion(tipoSusc, this);
-      break;
-      case
-
-    }
+    if(serv == Netflix) {
+      serv.suscripcion(tipoSusc, this);
       this.listaDeServicios.add(serv);
-
+    }
+    // switch (serv) {
+    //   case Netflix:
+    //   break;
+    //   default:
+    //   break;
+    // }
   }
 
 }
