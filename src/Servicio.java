@@ -1,39 +1,56 @@
-package src;
 
-import src.*;
+import java.util.LinkedList;
 
-
-import java.util.Scanner;
 
 public class Servicio {
-  private Servicio serv;
 
+  private Transaccion serv;
+  private LinkedList usuarios = new LinkedList<Persona>();
+  private LinkedList exUsuarios = new LinkedList<Persona>();
+  // private recomendacion;
+
+
+  public Transaccion getServ() {
+    return this.serv;
+  }
+  public void setServ(Transaccion serv) {
+    this.serv = serv;
+  }
 
   public void netflix() {
     serv = new Netflix();
   }
 
-  // public void amazon() {
-  //   serv = new Amazon();
-  // }
-  //
-  // public void twitch() {
-  //   serv = new Twitch();
-  // }
-  //
-  // public void spotify() {
-  //   serv = new Spotify();
-  // }
-  //
-  // public void youtube() {
-  //   serv = new Youtube();
-  // }
-
   private void validaPago(Persona persona) {
     persona.pagar(serv);
+    return;
   }
 
-  // public static void main(String[] args) {
-  //   System.out.println("XD.");
-  // }
+  public LinkedList getUsuarios() {
+    return this.usuarios;
+  }
+
+  public void setUsuarios(LinkedList<Persona> usuarios) {
+    this.usuarios = usuarios;
+  }
+  public LinkedList getExUsuarios() {
+    return this.exUsuarios;
+  }
+
+  public void setExUsuarios(LinkedList<Persona> exUsuarios) {
+    this.usuarios = exUsuarios;
+  }
+
+  public static void main(String[] args) {
+    Persona bob = new Persona(1, 50.50, "Bob");
+    Servicio ne = new Servicio();
+    ne.netflix();
+    ne.serv.pago(bob);
+
+    // // Transaccion netf =
+    // ne.netflix();
+    // netf.pago(bob);
+    // // s.pago(bob);
+  }
+
 }
