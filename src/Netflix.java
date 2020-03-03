@@ -8,21 +8,30 @@ public class Netflix implements Transaccion {
 
   public Netflix() {}
 
-  @Override public void pago(Persona pe) {
-    Servicio s = new Servicio();
-    if(s.getUsuarios().contains(pe)) {
-      System.out.println("Bienvenido a la prueba gratis de Netflix.");
+  @Override public void pago(Persona pe, Servicio s) {
+    // Servicio s = new Servicio();
+    if(!s.getUsuarios().contains(pe)) {
       s.getUsuarios().add(pe);
+      System.out.println("Bienvenido a la prueba gratis de Netflix.");
+      pe.getListaDeServicios().add(s);
     } else if(s.getExUsuarios().contains(pe)) {
         System.out.println("Bienvenido de vuelta a Netflix.");
-        Double presupuesto = pe.getPresupuesto() - suscripcion(pe.getTipoSusc(), pe);
+        // Double presupuesto = pe.getPresupuesto() - suscripcion(pe.getTipoSusc(), pe);
+        Double prepresupuesto = pe.getPresupuesto();
+        prepresupuesto -= suscripcion(pe.getTipoSusc(), pe);
+        pe.setPresupuesto(prepresupuesto);
         s.getExUsuarios().remove(pe);
+        s.getUsuarios().add(pe);
         pe.getListaDeServicios().add(s);
     } else {
-      Double presupuesto = pe.getPresupuesto() - suscripcion(pe.getTipoSusc(), pe);
+      s.getUsuarios().add(pe);
+      Double prepresupuesto = pe.getPresupuesto();
+      prepresupuesto -= suscripcion(pe.getTipoSusc(), pe);
+      pe.setPresupuesto(prepresupuesto);
+      pe.getListaDeServicios().add(s);
     }
 
-    System.out.println("\n SIIIIII");
+    System.out.println("\n Estoy harto del PRI");
   }
 
   @Override public int suscripcion(int dispositivos, Persona per) {
@@ -30,6 +39,7 @@ public class Netflix implements Transaccion {
       case 1:
           // NetflixUno serv = new NetflixUno();
           // pago(per);
+          // NetflixUno.pago(per, );
           return 7;
       case 2:
           // NetflixDos serv = new NetflixDos();

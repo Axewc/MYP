@@ -17,15 +17,6 @@ public class Servicio {
     this.serv = serv;
   }
 
-  public void netflix() {
-    serv = new Netflix();
-  }
-
-  private void validaPago(Persona persona) {
-    persona.pagar(serv);
-    return;
-  }
-
   public LinkedList getUsuarios() {
     return this.usuarios;
   }
@@ -41,16 +32,13 @@ public class Servicio {
     this.usuarios = exUsuarios;
   }
 
-  public static void main(String[] args) {
-    Persona bob = new Persona(1, 50.50, "Bob");
-    Servicio ne = new Servicio();
-    ne.netflix();
-    ne.serv.pago(bob);
-
-    // // Transaccion netf =
-    // ne.netflix();
-    // netf.pago(bob);
-    // // s.pago(bob);
+  public void netflix() {
+    serv = new Netflix();
   }
+
+  // private void validaPago(Persona persona) {
+  //   persona.pagar(serv);
+  //   return;
+  // }
 
 }

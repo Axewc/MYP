@@ -48,9 +48,9 @@ public class Persona {
     this.listaDeServicios = listaDeServicios;
   }
 
-  public void pagar(Transaccion serv) {
-    serv.pago(this);
-  }
+  // public void pagar(Transaccion serv) {
+  //   serv.pago(this);
+  // }
 
   public boolean suscribirse(Transaccion serv, int tipoSusc) {
     if(serv instanceof Netflix) {
