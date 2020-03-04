@@ -52,19 +52,19 @@ public class Persona {
   //   serv.pago(this);
   // }
 
-  public boolean suscribirse(Transaccion serv, int tipoSusc) {
-    if(serv instanceof Netflix) {
-      serv.suscripcion(tipoSusc, this);
-      this.listaDeServicios.addLast(serv);
-    }
-    // switch (serv) {
-    //   case Netflix:
-    //   break;
-    //   default:
-    //   break;
-    // }
-    return true;
-  }
+  // public boolean suscribirse(Transaccion serv, int tipoSusc) {
+  //   if(serv instanceof Netflix) {
+  //     serv.getServ().suscripcion(tipoSusc, this);
+  //     this.listaDeServicios.addLast(serv);
+  //   }
+  //   // switch (serv) {
+  //   //   case Netflix:
+  //   //   break;
+  //   //   default:
+  //   //   break;
+  //   // }
+  //   return true;
+  // }
 
   // public static void main(String[] args) {
   //   Persona bob = new Persona(1, 50.50, "Bob");

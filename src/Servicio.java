@@ -36,6 +36,18 @@ public class Servicio {
     serv = new Netflix();
   }
 
+  // public void cancelaSuscripcion(Persona per, Object s) {
+  //   LinkedList<Servicio> lista = new LinkedList<>();
+  //   lista = per.getListaDeServicios();
+  //   if(s instanceof Netflix) {
+  //     lista.remove(s);
+  //     System.out.println("Lamentamos que tengas que irte :(");
+  //     s.getExUsuarios().add(per);
+  //   } else {
+  //     System.out.println("Operacion invalida");
+  //   }
+  // }
+
   // private void validaPago(Persona persona) {
   //   persona.pagar(serv);
   //   return;

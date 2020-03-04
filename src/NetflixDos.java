@@ -1,10 +1,10 @@
 
 
-public abstract class NetflixDos implements Transaccion {
+public class NetflixDos implements CobroNetflix {
 
 
   @Override public void pago(Persona per, Servicio s) {
-    if(!verificaPresupuesto(per))
+    if(!s.getServ().verificaPresupuesto(per))
       System.out.println("Saldo insuficiente." + "\n Saldo requerido: $10");
       // s.pago()
     // per.presupuesto -= 10;
