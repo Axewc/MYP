@@ -1,60 +1,97 @@
 
-public class Netflix implements Transacciones {
+import java.util.LinkedList;
 
-  boolean primeraVez = True;
 
-  @Override public void pago(Persona pe) {
-    if(primeraVez) {
-      System.out.println("Bienvenido a la prueba gratis de Netflix");
-      this.primeraVez = false;
-
+public class Netflix implements Transaccion {
+    
+    public Netflix() {}
+    
+    @Override public void pago(int ts, Persona pe, Servicio s) {
+	// Servicio s = new Servicio();
+	if(!s.getUsuarios().contains(pe)) {
+	    s.agregar(pe, s.getUsuarios());
+	    System.out.println("Bienvenido a la prueba gratis de Netflix.");
+	    pe.getListaDeServicios().add(s);
+	} else if(s.getExUsuarios().contains(pe)) {
+	    System.out.println("Bienvenido de vuelta a Netflix.");
+	    switch (ts) {
+	    case 1:
+		CobroNetflix ne1 = new NetflixUno();
+		ne1.pago(pe, s);
+		break;
+	    case 2:
+		CobroNetflix ne2 = new NetflixDos();
+		ne2.pago(pe, s);
+		break;
+	    case 3:
+		CobroNetflix ne3 = new NetflixTres();
+		ne3.pago(pe, s);
+		break;
+	    default:
+		System.out.println("Plan no disponible, pruebe con '1','2'o '3'.");
+		break;
+	    }
+	    s.remover(pe, s.getExUsuarios());
+	    s.agregar(pe, s.getUsuarios());
+	    pe.getListaDeServicios().add(s);
+	    
+	} else {
+	    
+	    switch (ts) {
+	    case 1:
+		CobroNetflix ne1 = new NetflixUno();
+		ne1.pago(pe, s);
+		break;
+	    case 2:
+		CobroNetflix ne2 = new NetflixDos();
+		ne2.pago(pe, s);
+		break;
+	    case 3:
+		CobroNetflix ne3 = new NetflixTres();
+		ne3.pago(pe, s);
+		break;
+	    default:
+		System.out.println("Plan no disponible, pruebe con '1','2'o '3'.");
+		break;
+	    }
+	    s.agregar(pe, s.getUsuarios());
+	    pe.getListaDeServicios().add(s);
+	}
+	
+	// System.out.println("\n Estoy harto del PRI");
     }
-      per.presupuesto -= suscripcion(tipoSusc, pe);
-  }
-
-  @Override public int suscripcion(int dispositivos, Persona per) {
-    switch (dispositivos) {
-      case 1:
-          if(!verificaPresupuesto(per))
-            System.out.println("Saldo insuficiente." + "\n Saldo requerido: $7");
-          // per.presupuesto -= 7;
-          System.out.println("Bienvenido a Netflix, " + per.nombre +" estás en el nivel Básico" + "\n(Costo: $7)");
-          return 7;
-        break;
-      case 2:
-          if(!verificaPresupuesto(per))
-            System.out.println("Saldo insuficiente." + "\n Saldo requerido: $10");
-          // per.presupuesto -= 10;
-          System.out.println("Bienvenido a Netflix, " + per.nombre +" estás en el nivel Intermedio" + "\n(Costo: $10)");
-          return 10;
-        break;
-      case 3:
-          if(!verificaPresupuesto(per))
-            System.out.println("Saldo insuficiente." + "\n Saldo requerido: $10");
-          // per.presupuesto -= 15;
-          System.out.println("Bienvenido a Netflix, " + per.nombre +" estás en el nivel Premium" + "\n(Costo: $15)");
-          return 15;
-        break;
-      default:
-        System.out.println("Plan no disponible, pruebe con '1','2'o '3'.");
-        break;
+    
+    // @Override public void cancelaSuscripcion(Persona per, Object s) {
+    //   LinkedList<Servicio> lista = new LinkedList<>();
+    //   lista = per.getListaDeServicios();
+    //   if(s instanceof Netflix) {
+    //     lista.remove(s);
+    //     System.out.println("Lamentamos que tengas que irte :(");
+    //   }
+    //   System.out.println("Operacion invalida");
+    //
+    // }
+    @Override public boolean verificaPresupuesto(Persona per) {
+	if(!(per.getPresupuesto() >= 7))
+	    return false;
+	// return true;
+	if(!(per.getPresupuesto() >= 10))
+	    return false;
+	// return true;
+	if(!(per.getPresupuesto() >= 15))
+	    return false;
+	return true;
     }
-    this.primeraVez = false;
-  }
-
-  @Override public boolean verificaPresupuesto(Persona per) {
-    if(!per.presupuesto >= 7) {
-      return false;
-      return true;
-    }
-    if(!per.presupuesto >= 10) {
-      return false;
-      return true;
-    }
-     if(!per.presupuesto >= 15) {
-       return false;
-       return true;
-     }
-  }
-
+    
+    @Override public void cancelaSuscripcion(Persona per, Servicio s) {
+	LinkedList<Servicio> lista = new LinkedList<>();
+	lista = per.getListaDeServicios();
+	if(s.getServ() instanceof Netflix) {
+	    lista.remove(s);
+	    System.out.println("Lamentamos que tengas que irte :(");
+	    s.agregar(per, s.getExUsuarios());
+	} else {
+	    System.out.println("Operacion invalida");
+	}
+    }    
 }
