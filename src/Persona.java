@@ -13,7 +13,7 @@ public class Persona {
                  this.tipoSusc = tipoSusc;
                  this.presupuesto = presupuesto;
                  this.nombre = nombre;
-                 // this.listaDeServicios = listaDeServicios;
+                 this.listaDeServicios = listaDeServicios;
   }
 
   public int getTipoSusc() {
@@ -48,30 +48,8 @@ public class Persona {
     this.listaDeServicios = listaDeServicios;
   }
 
-  // public void pagar(Transaccion serv) {
-  //   serv.pago(this);
-  // }
-
-  // public boolean suscribirse(Transaccion serv, int tipoSusc) {
-  //   if(serv instanceof Netflix) {
-  //     serv.getServ().suscripcion(tipoSusc, this);
-  //     this.listaDeServicios.addLast(serv);
-  //   }
-  //   // switch (serv) {
-  //   //   case Netflix:
-  //   //   break;
-  //   //   default:
-  //   //   break;
-  //   // }
-  //   return true;
-  // }
-
-  // public static void main(String[] args) {
-  //   Persona bob = new Persona(1, 50.50, "Bob");
-  //   Servicio s = new Servicio();
-  //   s.netflix();
-  //   s.pago(bob);
-  //   // s.pago(bob);
-  // }
+  public boolean esPrime() {
+    return this.tipoSusc == 5;
+  }
 
 }
