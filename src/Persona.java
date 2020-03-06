@@ -1,11 +1,11 @@
 
 import java.util.LinkedList;
 
-public class Persona {
+public class Persona implements Observador {
   private int tipoSusc;
   private String nombre;
   private double presupuesto;
-  private LinkedList listaDeServicios = new LinkedList<Servicio>();
+  private LinkedList<Servicio> listaDeServicios = new LinkedList<Servicio>();
 
 
   public Persona(int tipoSusc, Double presupuesto,
@@ -51,5 +51,11 @@ public class Persona {
   public boolean esPrime() {
     return this.tipoSusc == 5;
   }
+
+  @Override public void update() {
+  for (Servicio s : listaDeServicios) {
+    s.getRecomendacionDeHoy();
+  }
+}
 
 }
