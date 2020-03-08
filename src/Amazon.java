@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 public class Amazon implements Transaccion {
   
-  LinkedList<String> recomendaciones = new LinkedList<String>(); // CAMBIO
+  LinkedList<String> recomendaciones = new LinkedList<String>();
 
   public Amazon() {}
 
