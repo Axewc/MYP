@@ -8,19 +8,19 @@ public class Spotify implements Transaccion {
     @Override public void pago(int ts, Persona pe, Servicio s) {
       if(!s.getUsuarios().contains(pe)) {
         s.getUsuarios().add(pe);
-        System.out.println("Bienvenido a Spotify.");
+        System.out.println("Bienvenido a Spotify "+ pe.getNombre() +".");
         pe.getListaDeServicios().add(s);
 
       } else if(s.getExUsuarios().contains(pe)) {
-          System.out.println("Bienvenido de vuelta a Spotify.");
+          System.out.println("Bienvenido de vuelta a Spotify "+ pe.getNombre() + ".");
           switch (ts) {
             case 6:
-              CobrosSpotify ne1 = new SpotifyUno();
-              ne1.pago(pe, s);
+              CobrosSpotify sp1 = new SpotifyUno();
+              sp1.pago(pe, s);
               break;
             case 7:
-              CobrosSpotify ne2 = new SpotifyDos();
-              ne2.pago(pe, s);
+              CobrosSpotify sp2 = new SpotifyDos();
+              sp2.pago(pe, s);
               break;
             default:
               System.out.println("Plan no disponible, pruebe con '6', o '7'.");
@@ -34,12 +34,12 @@ public class Spotify implements Transaccion {
 
         switch (ts) {
           case 6:
-            CobrosSpotify ne1 = new SpotifyDos();
-            ne1.pago(pe, s);
+            CobrosSpotify sp1 = new SpotifyDos();
+            sp1.pago(pe, s);
             break;
           case 7:
-            CobrosSpotify ne2 = new SpotifyDos();
-            ne2.pago(pe, s);
+            CobrosSpotify sp2 = new SpotifyDos();
+            sp2.pago(pe, s);
             break;
           default:
             System.out.println("Plan no disponible, pruebe con '6', o '7'.");
@@ -62,7 +62,7 @@ public class Spotify implements Transaccion {
       lista = per.getListaDeServicios();
       if(s.getServ() instanceof Spotify) {
         lista.remove(s);
-        System.out.println("Lamentamos que tengas que irte :(");
+        System.out.println("Lamentamos que tengas que irte "+ per.getNombre() +" :(.");
         s.getExUsuarios().add(per);
         s.getUsuarios().remove(per);
         per.setListaDeServicios(lista);

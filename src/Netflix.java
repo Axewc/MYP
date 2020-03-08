@@ -7,13 +7,12 @@ public class Netflix implements Transaccion {
     public Netflix() {}
     
     @Override public void pago(int ts, Persona pe, Servicio s) {
-	// Servicio s = new Servicio();
 	if(!s.getUsuarios().contains(pe)) {
 	    s.agregar(pe, s.getUsuarios());
-	    System.out.println("Bienvenido a la prueba gratis de Netflix.");
+	    System.out.println("Bienvenido a la prueba gratis de Netflix " + pe.getNombre() + ".");
 	    pe.getListaDeServicios().add(s);
 	} else if(s.getExUsuarios().contains(pe)) {
-	    System.out.println("Bienvenido de vuelta a Netflix.");
+	    System.out.println("Bienvenido de vuelta a Netflix "+ pe.getNombre()+ ".");
 	    switch (ts) {
 	    case 1:
 		CobroNetflix ne1 = new NetflixUno();
@@ -57,27 +56,13 @@ public class Netflix implements Transaccion {
 	    s.agregar(pe, s.getUsuarios());
 	    pe.getListaDeServicios().add(s);
 	}
-	
-	// System.out.println("\n Estoy harto del PRI");
     }
     
-    // @Override public void cancelaSuscripcion(Persona per, Object s) {
-    //   LinkedList<Servicio> lista = new LinkedList<>();
-    //   lista = per.getListaDeServicios();
-    //   if(s instanceof Netflix) {
-    //     lista.remove(s);
-    //     System.out.println("Lamentamos que tengas que irte :(");
-    //   }
-    //   System.out.println("Operacion invalida");
-    //
-    // }
     @Override public boolean verificaPresupuesto(Persona per) {
 	if(!(per.getPresupuesto() >= 7))
 	    return false;
-	// return true;
 	if(!(per.getPresupuesto() >= 10))
 	    return false;
-	// return true;
 	if(!(per.getPresupuesto() >= 15))
 	    return false;
 	return true;
@@ -88,7 +73,7 @@ public class Netflix implements Transaccion {
 	lista = per.getListaDeServicios();
 	if(s.getServ() instanceof Netflix) {
 	    lista.remove(s);
-	    System.out.println("Lamentamos que tengas que irte :(");
+	    System.out.println("Lamentamos que tengas que irte "+ per.getNombre() +" :(.");
 	    s.agregar(per, s.getExUsuarios());
 	} else {
 	    System.out.println("Operacion invalida");

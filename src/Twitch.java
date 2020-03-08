@@ -8,17 +8,17 @@ public class Twitch implements Transaccion {
     @Override public void pago(int ts, Persona pe, Servicio s) {
 	if(!s.getUsuarios().contains(pe)) {
 	    s.agregar(pe, s.getUsuarios());
-	    System.out.println("Bienvenido a la prueba gratis de Twitch.");
+	    System.out.println("Bienvenido a la prueba gratis de Twitch "+ pe.getNombre() +".");
 	    pe.getListaDeServicios().add(s);
 	} else if(s.getExUsuarios().contains(pe)) {
-	    System.out.println("Bienvenido de vuelta a Twitch.");
+	    System.out.println("Bienvenido de vuelta a Twitch "+ pe.getNombre() +".");
 	    switch (ts) {
 	    case 8:
 		CobroTwitch tw = new TwitchPago();
 		tw.pago(pe, s);
 		break;
 	    default:
-		System.out.println("Plan no disponible, pruebe con '1','2'o '3'.");
+		System.out.println("Plan no disponible, pruebe con '8'.");
 		break;
 	    }
 	    s.remover(pe, s.getExUsuarios());
@@ -33,7 +33,7 @@ public class Twitch implements Transaccion {
 		tw.pago(pe, s);
 		break;
 	    default:
-		System.out.println("Plan no disponible, pruebe con '1','2'o '3'.");
+		System.out.println("Plan no disponible, pruebe con '8'.");
 		break;
 	    }
 	    s.agregar(pe, s.getUsuarios());
@@ -54,7 +54,7 @@ public class Twitch implements Transaccion {
 	lista = per.getListaDeServicios();
 	if(s.getServ() instanceof Twitch) {
 	    lista.remove(s);
-	    System.out.println("Lamentamos que tengas que irte :(");
+	    System.out.println("Lamentamos que tengas que irte "+ per.getNombre() +" :(.");
 	    s.getUsuarios().remove(per);
 	    s.getExUsuarios().add(per);
 	    per.setListaDeServicios(lista);
