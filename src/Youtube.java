@@ -2,6 +2,8 @@ import java.util.LinkedList;
 
 public class Youtube implements Transaccion {
 
+    LinkedList<String> recomendaciones = new LinkedList<String>(); // CAMBIO
+
     public Youtube() {}
 
     @Override public void pago (int ts, Persona pe, Servicio s){
@@ -69,5 +71,12 @@ public class Youtube implements Transaccion {
 	} else {
 	    System.out.println("Operacion invalida");
 	}
+    }
+    
+    @Override public void llenaRecomendacion() {
+      recomendaciones.add("Luisito Comunica");
+      recomendaciones.add("Franco Escamilla");
+      recomendaciones.add("Milenio Noticias");
+      recomendaciones.add("Leyendas Legendarias");
     }
 }
