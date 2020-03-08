@@ -4,6 +4,8 @@ import java.util.LinkedList;
 
 public class Netflix implements Transaccion {
     
+    LinkedList<String> recomendaciones = new LinkedList<String>();
+    
     public Netflix() {}
     
     @Override public void pago(int ts, Persona pe, Servicio s) {
@@ -78,5 +80,12 @@ public class Netflix implements Transaccion {
 	} else {
 	    System.out.println("Operacion invalida");
 	}
+	    
+    @Override public void llenaRecomendacion() {
+        recomendaciones.add("Your Name");
+    	recomendaciones.add("Friends");
+    	recomendaciones.add("Scott Pilgrim");
+    	recomendaciones.add("The Flash");
+  }
     }    
 }
