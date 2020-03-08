@@ -88,5 +88,6 @@ public class Netflix implements Transaccion {
       s.getRecomendacion().add("Scott Pilgrim");
       s.getRecomendacion().add("The Flash");
       s.getRecomendacion().add("Death Note");
+      s.getRecomendacion().add("The Chillings Adventures of Sabrina");
     }
 }

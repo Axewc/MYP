@@ -70,30 +70,32 @@ public class Persona implements Observador {
         "Hoy Netflix les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         case 4:
-        return this.getNombre() + " esta en el servicio basico de Amazon ($7) \n"+
+        return this.getNombre() + " esta en el servicio basico de Amazon ($7) \n" +
         "Hoy Amazon les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         case 5:
-        return this.getNombre() + " esta en el servicio premium de Amazon ($13) \n"+
+        return this.getNombre() + " esta en el servicio premium de Amazon ($13) \n" +
         "Hoy Amazon les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         case 6:
-        return this.getNombre() + " esta en el servicio Regular de spotify (13) \n";
+        return this.getNombre() + " esta en el servicio Regular de spotify (13) \n" +
+        "Hoy Spotfy les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         case 7:
-        return this.getNombre() + " esta en el servicio premium de spotify ($) \n";
+        return this.getNombre() + " esta en el servicio premium de spotify ($) \n" +
+        "Hoy Spotify les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         case 8:
-        return this.getNombre() + " esta en el servicio basico de twitch ($7) \n";
+        return this.getNombre() + " esta en el servicio basico de twitch ($7) \n" +
+        "Hoy Twitch les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         case 9:
-        return this.getNombre() + " esta en el servicio de twitch prime ($10) \n";
+        return this.getNombre() + " esta en el servicio de twitch prime ($10) \n" +
+        "Hoy Youtube les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         case 10:
-        return  this.getNombre() + " esta en el servicio Regular de youtube \n";
-
-        case 11:
-        return  this.getNombre() + " esta en el servicio premium de youtube \n";
+        return  this.getNombre() + " esta en el servicio Regular de youtube \n"+
+        "Hoy Youtube les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         default:
         return  this.getNombre() + " no pertenece a ningún servicio \n";

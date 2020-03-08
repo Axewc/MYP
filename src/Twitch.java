@@ -69,5 +69,7 @@ public class Twitch implements Transaccion {
       s.getRecomendacion().add("Minecraft");
       s.getRecomendacion().add("Fortnite");
       s.getRecomendacion().add("League of Legends");
+      s.getRecomendacion().add("Super Smash Bros");
+      s.getRecomendacion().add("Apex Legends");
     }
 }

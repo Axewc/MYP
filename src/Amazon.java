@@ -79,5 +79,7 @@ public class Amazon implements Transaccion {
       s.getRecomendacion().add("John Wick");
       s.getRecomendacion().add("The Boys");
       s.getRecomendacion().add("LOL");
+      s.getRecomendacion().add("X-MEN");
+      s.getRecomendacion().add("Im not your negro");
     }
 }

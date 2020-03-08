@@ -83,7 +83,7 @@ public class Servicio implements Sujeto{
     * @return la recomendación de hoy.
     */
     public String getRecomendacionDeHoy() {
-      int numeroAleatorio = (int) (Math.random()*4+1);
+      int numeroAleatorio = (int) (Math.random()*6+0);
        return recomendacion.get(numeroAleatorio);
     }
 
@@ -165,21 +165,5 @@ public class Servicio implements Sujeto{
   	   serv = new Youtube();
     }
 
-    // /**
-    // * Método que informa de todo lo que está pasndo con la persona.
-    // */
-    // @Override public void notificar(Persona p) {
-    //   System.out.println("A " + p.getNombre() + " le restan: " +  "$"+p.getPresupuesto() + " pesos");
-    //   switch(p.getTipoSusc()) {
-    //     case 1:
-    //     System.out.println(p.getNombre() + " esta en el servicio basico de Netflix ($7)");
-    //     break;
-    //     case 2:
-    //     System.out.println(p.getNombre() + " esta en el servicio medio de Netflix ($10)");
-    //     default:
-    //     System.out.println(p.getNombre() + " no pertenece a Netflix ($14)");
-    //
-    //   }
-    // }
 
 }

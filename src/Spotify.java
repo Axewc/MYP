@@ -78,5 +78,7 @@ public class Spotify implements Transaccion {
       s.getRecomendacion().add("Tusa");
       s.getRecomendacion().add("The box");
       s.getRecomendacion().add("Yummy");
+      s.getRecomendacion().add("Help!");
+      s.getRecomendacion().add("Beat It");
     }
 }

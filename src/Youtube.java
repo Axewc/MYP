@@ -76,7 +76,9 @@ public class Youtube implements Transaccion {
     @Override public void llenaRecomendacion(Servicio s) {
       s.getRecomendacion().add("Luisito Comunica");
       s.getRecomendacion().add("Franco Escamilla");
-      s.getRecomendacion().add("Milenio Noticias");
+      s.getRecomendacion().add("Derivando");
       s.getRecomendacion().add("Leyendas Legendarias");
+      s.getRecomendacion().add("Werevertumorro");
+      s.getRecomendacion().add("C de Ciencia");
     }
 }
