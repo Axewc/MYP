@@ -1,4 +1,3 @@
-
 import java.util.LinkedList;
 
 public class Twitch implements Transaccion {
@@ -26,11 +25,11 @@ public class Twitch implements Transaccion {
 	    s.remover(pe, s.getExUsuarios());
 	    s.agregar(pe, s.getUsuarios());
 	    pe.getListaDeServicios().add(s);
-	    
+
 	} else {
-	    
+
 	    switch (ts) {
-	    case 8:		
+	    case 8:
 		CobroTwitch tw = new TwitchPago();
 		tw.pago(pe, s);
 		break;
@@ -42,7 +41,7 @@ public class Twitch implements Transaccion {
 	    pe.getListaDeServicios().add(s);
 	}
     }
-    
+
     @Override public boolean verificaPresupuesto(Persona per) {
 	if(!(per.getPresupuesto() >= 0))
 	    return false;
@@ -64,11 +63,11 @@ public class Twitch implements Transaccion {
 	    System.out.println("Operacion invalida");
 	}
     }
-    
-    @Override public void llenaRecomendacion() {
-      recomendaciones.add("Just Chating");
-      recomendaciones.add("Minecraft");
-      recomendaciones.add("Fortnite");
-      recomendaciones.add("League of Legends");
+
+    @Override public void llenaRecomendacion(Servicio s) {
+      s.getRecomendacion().add("Just Chating");
+      s.getRecomendacion().add("Minecraft");
+      s.getRecomendacion().add("Fortnite");
+      s.getRecomendacion().add("League of Legends");
     }
 }

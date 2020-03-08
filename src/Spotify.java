@@ -72,11 +72,11 @@ public class Spotify implements Transaccion {
         System.out.println("Operacion invalida");
       }
     }
-    
-    @Override public void llenaRecomendacion() {
-      recomendaciones.add("La Cumbia Del Coronavirus");
-      recomendaciones.add("Tusa");
-      recomendaciones.add("The box");
-      recomendaciones.add("Yummy");
+
+    @Override public void llenaRecomendacion(Servicio s) {
+      s.getRecomendacion().add("La Cumbia Del Coronavirus");
+      s.getRecomendacion().add("Tusa");
+      s.getRecomendacion().add("The box");
+      s.getRecomendacion().add("Yummy");
     }
 }

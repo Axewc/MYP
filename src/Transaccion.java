@@ -8,4 +8,6 @@ public interface Transaccion {
   public void pago(int d, Persona p, Servicio s);
 
   public boolean verificaPresupuesto(Persona per);
+
+  public void llenaRecomendacion(Servicio s);
 }

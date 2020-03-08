@@ -52,62 +52,54 @@ public class Persona implements Observador {
     return this.tipoSusc == 5;
   }
 
-  @Override public void update() {
+  @Override public String update() {
   for (Servicio s : listaDeServicios) {
     // s.getRecomendacionDeHoy();
-    System.out.println("A " + this.getNombre() + " le restan: " +  "$"+this.getPresupuesto() + " pesos");
+    // System.out.println("A " + this.getNombre() + " le restan: " +  "$"+this.getPresupuesto() + " pesos");
       switch(this.getTipoSusc()) {
         case 1:
-        System.out.println(this.getNombre() + " esta en el servicio basico de Netflix ($7)");
-        break;
+        return this.getNombre() + " esta en el servicio basico de Netflix ($7) \n" +
+        "Hoy Netflix les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         case 2:
-        System.out.println(this.getNombre() + " esta en el servicio medio de Netflix ($10)");
-        break;
+        return this.getNombre() + " esta en el servicio medio de Netflix ($10) \n" +
+        "Hoy Netflix les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         case 3:
-        System.out.println(this.getNombre() + " esta en el servicio premium de Netflix ($14)");
-        break;
+        return this.getNombre() + " esta en el servicio premium de Netflix ($14) \n" +
+        "Hoy Netflix les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         case 4:
-        System.out.println(this.getNombre() + " esta en el servicio basico de Amazon ($7)");
-        break;
+        return this.getNombre() + " esta en el servicio basico de Amazon ($7) \n"+
+        "Hoy Amazon les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         case 5:
-        System.out.println(this.getNombre() + " esta en el servicio premium de Amazon ($13)");
-        break;
+        return this.getNombre() + " esta en el servicio premium de Amazon ($13) \n"+
+        "Hoy Amazon les recomienda: " + s.getRecomendacionDeHoy() + ".";
 
         case 6:
-        System.out.println(this.getNombre() + " esta en el servicio Regular de spotify (13)");
-        break;
+        return this.getNombre() + " esta en el servicio Regular de spotify (13) \n";
 
         case 7:
-        System.out.println(this.getNombre() + " esta en el servicio premium de spotify ($)");
-        break;
+        return this.getNombre() + " esta en el servicio premium de spotify ($) \n";
 
         case 8:
-        System.out.println(this.getNombre() + " esta en el servicio basico de twitch ($7)");
-        break;
+        return this.getNombre() + " esta en el servicio basico de twitch ($7) \n";
 
         case 9:
-        System.out.println(this.getNombre() + " esta en el servicio de twitch prime ($10)");
-        break;
+        return this.getNombre() + " esta en el servicio de twitch prime ($10) \n";
 
         case 10:
-        System.out.println(this.getNombre() + " esta en el servicio Regular de youtube");
-        break;
+        return  this.getNombre() + " esta en el servicio Regular de youtube \n";
 
         case 11:
-        System.out.println(this.getNombre() + " esta en el servicio premium de youtube");
-        break;
+        return  this.getNombre() + " esta en el servicio premium de youtube \n";
 
         default:
-        System.out.println(this.getNombre() + " no pertenece a ningún servicio");
-        break;
+        return  this.getNombre() + " no pertenece a ningún servicio \n";
       }
-      break;
+    }
+    return "A " + this.getNombre() + " le restan: " +  "$"+this.getPresupuesto() + " pesos";
   }
-
-}
 
 }

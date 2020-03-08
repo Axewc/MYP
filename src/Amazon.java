@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 
 public class Amazon implements Transaccion {
-  
+
   LinkedList<String> recomendaciones = new LinkedList<String>();
 
   public Amazon() {}
@@ -74,10 +74,10 @@ public class Amazon implements Transaccion {
         System.out.println("Operacion invalida");
       }
     }
-    @Override public void llenaRecomendacion() {
-      recomendaciones.add("Iron Man 3");
-      recomendaciones.add("John Wick");
-      recomendaciones.add("The Boys");
-      recomendaciones.add("LOL");
+    @Override public void llenaRecomendacion(Servicio s) {
+      s.getRecomendacion().add("Iron Man 3");
+      s.getRecomendacion().add("John Wick");
+      s.getRecomendacion().add("The Boys");
+      s.getRecomendacion().add("LOL");
     }
 }

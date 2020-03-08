@@ -3,11 +3,11 @@ import java.util.LinkedList;
 
 
 public class Netflix implements Transaccion {
-    
+
     LinkedList<String> recomendaciones = new LinkedList<String>();
-    
+
     public Netflix() {}
-    
+
     @Override public void pago(int ts, Persona pe, Servicio s) {
 	if(!s.getUsuarios().contains(pe)) {
 	    s.agregar(pe, s.getUsuarios());
@@ -35,9 +35,9 @@ public class Netflix implements Transaccion {
 	    s.remover(pe, s.getExUsuarios());
 	    s.agregar(pe, s.getUsuarios());
 	    pe.getListaDeServicios().add(s);
-	    
+
 	} else {
-	    
+
 	    switch (ts) {
 	    case 1:
 		CobroNetflix ne1 = new NetflixUno();
@@ -59,7 +59,7 @@ public class Netflix implements Transaccion {
 	    pe.getListaDeServicios().add(s);
 	}
     }
-    
+
     @Override public boolean verificaPresupuesto(Persona per) {
 	if(!(per.getPresupuesto() >= 7))
 	    return false;
@@ -69,7 +69,7 @@ public class Netflix implements Transaccion {
 	    return false;
 	return true;
     }
-    
+
     @Override public void cancelaSuscripcion(Persona per, Servicio s) {
 	LinkedList<Servicio> lista = new LinkedList<>();
 	lista = per.getListaDeServicios();
@@ -80,12 +80,13 @@ public class Netflix implements Transaccion {
 	} else {
 	    System.out.println("Operacion invalida");
 	}
-	    
-    @Override public void llenaRecomendacion() {
-        recomendaciones.add("Your Name");
-    	recomendaciones.add("Friends");
-    	recomendaciones.add("Scott Pilgrim");
-    	recomendaciones.add("The Flash");
-  }
-    }    
+
+    }
+    @Override public void llenaRecomendacion(Servicio s) {
+      s.getRecomendacion().add("Your Name");
+      s.getRecomendacion().add("Friends");
+      s.getRecomendacion().add("Scott Pilgrim");
+      s.getRecomendacion().add("The Flash");
+      s.getRecomendacion().add("Death Note");
+    }
 }

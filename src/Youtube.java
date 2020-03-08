@@ -32,7 +32,7 @@ public class Youtube implements Transaccion {
 	    pe.getListaDeServicios().add(s);
 
 	} else {
-	    
+
 	    switch (ts) {
 	    case 9:
 		CobroYoutube yt1 = new YoutubeNormal();
@@ -48,7 +48,7 @@ public class Youtube implements Transaccion {
 	    }
 	    s.getUsuarios().add(pe);
 	    pe.getListaDeServicios().add(s);
-	}	    
+	}
     }
 
     @Override public boolean verificaPresupuesto(Persona per) {
@@ -72,11 +72,11 @@ public class Youtube implements Transaccion {
 	    System.out.println("Operacion invalida");
 	}
     }
-    
-    @Override public void llenaRecomendacion() {
-      recomendaciones.add("Luisito Comunica");
-      recomendaciones.add("Franco Escamilla");
-      recomendaciones.add("Milenio Noticias");
-      recomendaciones.add("Leyendas Legendarias");
+
+    @Override public void llenaRecomendacion(Servicio s) {
+      s.getRecomendacion().add("Luisito Comunica");
+      s.getRecomendacion().add("Franco Escamilla");
+      s.getRecomendacion().add("Milenio Noticias");
+      s.getRecomendacion().add("Leyendas Legendarias");
     }
 }

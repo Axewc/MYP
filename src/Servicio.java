@@ -1,5 +1,5 @@
 import java.util.LinkedList;
-import java.lang.Math; 
+import java.lang.Math;
 
 public class Servicio implements Sujeto{
 
@@ -40,11 +40,10 @@ public class Servicio implements Sujeto{
     /**
     * Recorre la lita de usuarios y va a cambiar su recomendacion diaria.
     */
-    @Override public void notificar() {
-      for (Persona p : this.usuarios) {
-        p.update();
-        break;
-      }
+    @Override public String notificar() {
+      for (Persona p : this.usuarios)
+         return p.update();
+         return "banderademexico";
     }
 
     /**
@@ -84,8 +83,8 @@ public class Servicio implements Sujeto{
     * @return la recomendación de hoy.
     */
     public String getRecomendacionDeHoy() {
-      int numeroAleatorio = (int) (Math.random()*5+1);
-       return this.recomendacion.get(numeroAleatorio);
+      int numeroAleatorio = (int) (Math.random()*4+1);
+       return recomendacion.get(numeroAleatorio);
     }
 
     /**
