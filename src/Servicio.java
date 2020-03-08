@@ -42,7 +42,7 @@ public class Servicio implements Sujeto{
     */
     @Override public String notificar() {
       for (Persona p : this.usuarios)
-         return p.update();
+         return p.update(this);
          return "banderademexico";
     }
 

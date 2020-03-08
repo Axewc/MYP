@@ -33,20 +33,23 @@ public class Consola {
 	System.out.println("Primer dia de cobros");
 	//Netflix
 	ne.getServ().pago(Alicia.getTipoSusc(), Alicia, ne);
+  System.out.println(Alicia.update(ne) + "\n");
+
   Alicia.setTipoSusc(5);
   am.getServ().pago(Alicia.getTipoSusc(), Alicia, am);
 
-  System.out.println(Alicia.update() + "\n");
+  System.out.println(Alicia.update(am) + "\n");
+
+  // System.out.println(Alicia.update(ne) + "\n");
 
   Alicia.setTipoSusc(3);
   ne.getServ().pago(Alicia.getTipoSusc(), Alicia, ne);
   Alicia.setTipoSusc(5);
   am.getServ().pago(Alicia.getTipoSusc(), Alicia, am);
 
-  System.out.println(Alicia.update() + "\n");
+  // System.out.println(Alicia.update(am) + "\n");
 
 
-  // System.out.println(Alicia.update() + "\n");
   //
   // System.out.println(Alicia.update() + "\n");
 

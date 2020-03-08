@@ -52,8 +52,8 @@ public class Persona implements Observador {
     return this.tipoSusc == 5;
   }
 
-  @Override public String update() {
-  for (Servicio s : listaDeServicios) {
+  @Override public String update(Servicio s) {
+  // for (Servicio s : listaDeServicios) {
     // s.getRecomendacionDeHoy();
     // System.out.println("A " + this.getNombre() + " le restan: " +  "$"+this.getPresupuesto() + " pesos");
       switch(this.getTipoSusc()) {
@@ -97,9 +97,9 @@ public class Persona implements Observador {
 
         default:
         return  this.getNombre() + " no pertenece a ningún servicio \n";
+        // return "A " + this.getNombre() + " le restan: " +  "$"+this.getPresupuesto() + " pesos";
       }
-    }
-    return "A " + this.getNombre() + " le restan: " +  "$"+this.getPresupuesto() + " pesos";
+    // }
   }
 
 }

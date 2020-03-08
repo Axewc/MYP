@@ -1,6 +1,6 @@
 
 public interface Observador {
 
-  public String update();
+  public String update(Servicio s);
 
 }
