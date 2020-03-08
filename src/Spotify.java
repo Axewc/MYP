@@ -3,6 +3,8 @@ import java.util.LinkedList;
 
 public class Spotify implements Transaccion {
 
+  LinkedList<String> recomendaciones = new LinkedList<String>();
+
   public Spotify() {}
 
     @Override public void pago(int ts, Persona pe, Servicio s) {
@@ -70,5 +72,11 @@ public class Spotify implements Transaccion {
         System.out.println("Operacion invalida");
       }
     }
-
+    
+    @Override public void llenaRecomendacion() {
+      recomendaciones.add("La Cumbia Del Coronavirus");
+      recomendaciones.add("Tusa");
+      recomendaciones.add("The box");
+      recomendaciones.add("Yummy");
+    }
 }
