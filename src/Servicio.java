@@ -1,5 +1,5 @@
 import java.util.LinkedList;
-
+import java.lang.Math; 
 
 public class Servicio implements Sujeto{
 
@@ -84,8 +84,8 @@ public class Servicio implements Sujeto{
     * @return la recomendación de hoy.
     */
     public String getRecomendacionDeHoy() {
-      int r = 0;
-       return this.recomendacion.get(r);
+      int numeroAleatorio = (int) (Math.random()*5+1);
+       return this.recomendacion.get(numeroAleatorio);
     }
 
     /**
