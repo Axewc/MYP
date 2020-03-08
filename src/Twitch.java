@@ -3,6 +3,8 @@ import java.util.LinkedList;
 
 public class Twitch implements Transaccion {
 
+    LinkedList<String> recomendaciones = new LinkedList<String>(); // CAMBIO
+
     public Twitch() {}
 
     @Override public void pago(int ts, Persona pe, Servicio s) {
@@ -61,5 +63,12 @@ public class Twitch implements Transaccion {
 	} else {
 	    System.out.println("Operacion invalida");
 	}
+    }
+    
+    @Override public void llenaRecomendacion() {
+      recomendaciones.add("Just Chating");
+      recomendaciones.add("Minecraft");
+      recomendaciones.add("Fortnite");
+      recomendaciones.add("League of Legends");
     }
 }
