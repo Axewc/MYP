@@ -1,7 +1,13 @@
+/**
+ * Clase que representa cuando el robot recibe una orden,
+ * en ella solo puede pasar a caminar.
+ */
 public class RecibiendoOrden implements EstadoRobot{
 
+    //robot para cambiar de estados.
     Robot robot;
 
+    //constructor para que el robot cambie adecuadamente de estados.
     public RecibiendoOrden(Robot nuevoRobot){
 	robot = nuevoRobot;
     }

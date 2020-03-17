@@ -1,7 +1,13 @@
+/**
+ * Clase para representar que el robot se está reabasteciendo,
+ * en la cual, el robot solo puede regresar a caminar despues de hacerlo.
+ */
 public class Reabasteciendo implements EstadoRobot{
 
+    //Robot auxiliar para cambiar de estados.
     Robot robot;
 
+    //constructor para que el robot cambien adecuadamente de estados.
     public Reabasteciendo(Robot nuevoRobot){
 	robot = nuevoRobot;
     }

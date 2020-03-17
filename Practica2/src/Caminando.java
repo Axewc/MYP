@@ -1,7 +1,14 @@
+/**
+ * Clase que representa cuando el robot camina;
+ * en esta clase el robot puede pasar a los estados
+ * suspendido, reabasteciendo o trabajando.
+ */
 public class Caminando implements EstadoRobot{
 
+    //Robot auxiliar para cambiar de estados
     Robot robot;
 
+    //constructor para que el robot cambie adecuadamente de estados
     public Caminando(Robot nuevoRobot){
 	robot = nuevoRobot;
     }
