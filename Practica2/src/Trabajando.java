@@ -1,11 +1,12 @@
 /**
 * Extiende ProcesoConstruccion para poder hacer uso de sus funcionalidades
 * es decir, el orden o receta que se usará para trabajar(construir) un hogarcito.
-* implementa EstadoRobot para hacer una correcta transicion entre estados
+* implementa EstadoRobot para hacer una correcta transicion entre estados.
+* El robot solo puede cambiar de estado a Caminando.
 */
 public class Trabajando extends ProcesoConstruccion implements EstadoRobot {
 
-  /*Robot auxiliar para camniar de estado.*/
+  /*Robot auxiliar para cambiar de estado.*/
   Robot robot;
 
   /**Cosntructor para que el robot cambie de estado apropiadamente.*/
