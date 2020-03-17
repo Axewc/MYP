@@ -7,7 +7,7 @@ public class Robot {
 
   /*Varibles que determinan los estados del Robot*/
   EstadoRobot suspendido;
-  EstadoRobot recibirOrden;
+  EstadoRobot recibiendoOrden;
   EstadoRobot caminando;
   EstadoRobot reabasteciendo;
   EstadoRobot trabajando;
@@ -21,8 +21,8 @@ public class Robot {
   public Robot() {
     /*Instancia el estado Suspendido y sus métodos*/
     this.suspendido = new Suspendido(this);
-    /*Instancia el estado RecibirOrden y sus métodos*/
-    this.recibirOrden = new RecibirOrden(this);
+    /*Instancia el estado RecibiendoOrden y sus métodos*/
+    this.recibiendoOrden = new RecibiendoOrden(this);
     /*Instancia el estado Caminando y sus métodos*/
     this.caminando = new Caminando(this);
     /*Instancia el estado Reabasteciendo y sus métodos*/
@@ -34,7 +34,7 @@ public class Robot {
   * Método que determina el mensaje que recibe el Robot.
   * @param mensaje la nueva cadena que se envía al Robot.
   */
-  public String setMensaje(String mensaje) {
+  public void setMensaje(String mensaje) {
     this.mensaje = mensaje;
   }
   /**
@@ -119,7 +119,7 @@ public class Robot {
   * Regresa el estado Trabajadno del Robot.
   */
   public EstadoRobot getEstadoTrabajando() {
-    return this.trabajando
+    return this.trabajando;
   }
 
 }

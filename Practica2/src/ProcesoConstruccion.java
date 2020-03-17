@@ -6,9 +6,9 @@ public abstract class ProcesoConstruccion {
   // public String construccionFinal;
 
   /*Método abastracto para construir esqueleto de disintos materiales.*/
-  abstract void construccionEsqueleto();
+  abstract int construccionEsqueleto();
   /*Método abastracto para el aislamiento de la casa de disintos materiales.*/
-  abstract void aislamientoDeLaCasa();
+  abstract int aislamientoDeLaCasa();
 
   /*
   * Método template para construir Hogarcitos.
@@ -21,7 +21,7 @@ public abstract class ProcesoConstruccion {
       instalacionElectricaYPlomeria();
       aislamientoDeLaCasa();
       acabados();
-      pagoTotal(construccionEsqueleto, aislamientoDeLaCasa);
+      pagoTotal(construccionEsqueleto(), aislamientoDeLaCasa());
   }
 
   /*

@@ -7,7 +7,7 @@
 public class Trabajando extends ProcesoConstruccion implements EstadoRobot {
 
   /*Robot auxiliar para cambiar de estado.*/
-  Robot robot;
+  Robot robot = new Robot();
 
   /**Cosntructor para que el robot cambie de estado apropiadamente.*/
   public Trabajando(Robot nuevoRobot) {
@@ -38,5 +38,15 @@ public class Trabajando extends ProcesoConstruccion implements EstadoRobot {
   public void trabajar() {
     System.out.println("El robot ya está trabajando.\n");
     //Proceso de Construcción.
+    construccion();
+  }
+  @Override int construccionEsqueleto() {
+    System.out.println("Aqui no hacemos eso.");
+    return 0;
+  }
+
+  @Override int aislamientoDeLaCasa() {
+    System.out.println("Aqui no hacemos eso.");
+    return 0;
   }
 }
