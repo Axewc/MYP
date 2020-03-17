@@ -1,8 +1,8 @@
-
+import java.lang.Integer;
 public abstract class ProcesoConstruccion {
 
   /*Varible que lleva la cuenta de lo invertido en Mi Hogarcito.*/
-  public int costoFinal = 0;
+  public int costoFinal = 1000000;
   // public String construccionFinal;
 
   /*Método abastracto para construir esqueleto de disintos materiales.*/
@@ -12,6 +12,7 @@ public abstract class ProcesoConstruccion {
 
   /*
   * Método template para construir Hogarcitos.
+  * En el paso 3 y 5 queremos que cambie según el operador.
   */
   public final void construccion() {
       preparacionDelTerreno();
@@ -20,6 +21,7 @@ public abstract class ProcesoConstruccion {
       instalacionElectricaYPlomeria();
       aislamientoDeLaCasa();
       acabados();
+      pagoTotal(construccionEsqueleto, aislamientoDeLaCasa);
   }
 
   /*
@@ -43,6 +45,12 @@ public abstract class ProcesoConstruccion {
   /*Sexto.*/
   void acabados() {
     System.out.println("Ya casi acabamos, solo restan tus acabados :D");
+  }
+
+  /*Hará la suma de lo que se haya invertido extra en el hogarcito*/
+  void pagoTotal(int esqueleto, int aislamiento) {
+    this.costoFinal += material;
+    System.out.println(Integer.toString(this.costoFinal));
   }
 
 }
