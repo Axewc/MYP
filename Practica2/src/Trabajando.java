@@ -36,7 +36,6 @@ public class Trabajando extends ProcesoConstruccion implements EstadoRobot {
   */
   public void trabajar() {
     System.out.println("El robot ya está trabajando.\n");
-    robot.asignarEstadoRobot(robot.getEstadoTrabajando());
     //Proceso de Construcción.
   }
 }
