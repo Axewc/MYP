@@ -3,7 +3,7 @@
 * Interfaz para los métodos usados como transiciones
 * entre estados del Robot.
 */
-public interface EstadoRoot {
+public interface EstadoRobot {
   /*Transicion para el estado Suspendido*/
   void suspender();
   /*Transicion para el estado RecibiendoOrden*/
