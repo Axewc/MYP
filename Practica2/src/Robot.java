@@ -7,7 +7,7 @@ public class Robot {
 
   /*Varibles que determinan los estados del Robot*/
   EstadoRobot suspendido;
-  EstadoRobot recibiendoOrden;
+  EstadoRobot recibirOrden;
   EstadoRobot caminando;
   EstadoRobot reabasteciendo;
   EstadoRobot trabajando;
@@ -20,15 +20,15 @@ public class Robot {
   */
   public Robot() {
     /*Instancia el estado Suspendido y sus métodos*/
-    this.suspendido = new Suspendido();
+    this.suspendido = new Suspendido(this);
     /*Instancia el estado RecibirOrden y sus métodos*/
-    this.recibiendoOrden = new RecibirOrden();
+    this.recibirOrden = new RecibirOrden(this);
     /*Instancia el estado Caminando y sus métodos*/
-    this.caminando = new Caminando();
+    this.caminando = new Caminando(this);
     /*Instancia el estado Reabasteciendo y sus métodos*/
-    this.reabasteciendo = new Reabasteciendo();
+    this.reabasteciendo = new Reabasteciendo(this);
     /*Instancia el estado Trabajando y sus métodos*/
-    this.trabajando = new Trabajando();
+    this.trabajando = new Trabajando(this);
   }
   /**
   * Método que determina el mensaje que recibe el Robot.
