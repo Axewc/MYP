@@ -1,5 +1,9 @@
 
-public class Concreto extends ProcesoConstruccion {
+/**
+* Clase para el material Madera.
+* Implementa los métodos abstractos de ProcesoConstruccion.
+*/
+public class Madera extends ProcesoConstruccion {
 
   @Override int aislamientoDeLaCasa() {
     System.out.println("Muros de madera, son mis favoritos me recuerdan" +
