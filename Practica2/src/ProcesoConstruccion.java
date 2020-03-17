@@ -49,7 +49,7 @@ public abstract class ProcesoConstruccion {
 
   /*Hará la suma de lo que se haya invertido extra en el hogarcito*/
   void pagoTotal(int esqueleto, int aislamiento) {
-    this.costoFinal += esqueleto + aislamientol;
+    this.costoFinal += esqueleto + aislamiento;
     System.out.println(Integer.toString(this.costoFinal));
   }
 
