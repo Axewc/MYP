@@ -4,10 +4,10 @@
  */
 public class Reabasteciendo implements EstadoRobot{
 
-    //Robot auxiliar para cambiar de estados.
-    Robot robot = new Robot();
+    /*Robot auxiliar para cambiar de estados*/
+    Robot robot;
 
-    //constructor para que el robot cambien adecuadamente de estados.
+    /*constructor para que el robot cambie adecuadamente de estados.*/
     public Reabasteciendo(Robot nuevoRobot){
 	robot = nuevoRobot;
     }

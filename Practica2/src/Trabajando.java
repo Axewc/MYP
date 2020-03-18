@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
 * Extiende ProcesoConstruccion para poder hacer uso de sus funcionalidades
 * es decir, el orden o receta que se usará para trabajar(construir) un hogarcito.
@@ -7,7 +9,7 @@
 public class Trabajando extends ProcesoConstruccion implements EstadoRobot {
 
   /*Robot auxiliar para cambiar de estado.*/
-  Robot robot = new Robot();
+  Robot robot;
 
   /**Cosntructor para que el robot cambie de estado apropiadamente.*/
   public Trabajando(Robot nuevoRobot) {
@@ -39,14 +41,20 @@ public class Trabajando extends ProcesoConstruccion implements EstadoRobot {
     System.out.println("El robot ya está trabajando.\n");
     //Proceso de Construcción.
     construccion();
+    robot.setYaReabasteci(false);
   }
+
+  /**
+  * Métodos abstractos que se deben implemnetar
+  * para poder extender ProcesoConstruccion.
+  */
   @Override int construccionEsqueleto() {
-    System.out.println("Aqui no hacemos eso.");
+    System.out.println("");
     return 0;
   }
 
   @Override int aislamientoDeLaCasa() {
-    System.out.println("Aqui no hacemos eso.");
+    System.out.println("");
     return 0;
   }
 }

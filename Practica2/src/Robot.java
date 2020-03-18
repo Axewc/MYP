@@ -12,10 +12,8 @@ public class Robot {
   EstadoRobot reabasteciendo;
   EstadoRobot trabajando;
   EstadoRobot estadoActual;
+  /*Variable paraasegurar que el robot ya reabastecio antes de comenzar a trabajar.*/
   boolean yaReabastecí;
-
-  /*Mensaje que estará mandando el Robot*/
-  private String mensaje;
 
   /**
   * Constructor que inicializa los estados, y el estado actual.
@@ -31,33 +29,22 @@ public class Robot {
     this.reabasteciendo = new Reabasteciendo(this);
     /*Instancia el estado Trabajando y sus métodos*/
     this.trabajando = new Trabajando(this);
+    /*El robot debe estar suspendido por default*/
     this.estadoActual = suspendido;
+    /*En principio el robot no tiene materiales.*/
     this.yaReabastecí = false;
   }
+
   /**
-  * Método que determina el mensaje que recibe el Robot.
-  * @param mensaje la nueva cadena que se envía al Robot.
-  */
-  public void setMensaje(String mensaje) {
-    this.mensaje = mensaje;
-  }
-  /**
-  * Método que determina el mensaje que envíará el robot.
-  * @return mensaje la nueva cadena que se envía al Robot.
-  */
-  public String getMensaje() {
-    return this.mensaje;
-  }
-  /**
-  * Método que determina el mensaje que recibe el Robot.
-  * @param mensaje la nueva cadena que se envía al Robot.
+  * Método que determina si el robot ya se ha reabastecido.
+  * @param yaReabastecí false si no reabastecio, de lo contrario true.
   */
   public void setYaReabasteci(boolean yaReabastecí) {
     this.yaReabastecí = yaReabastecí;
   }
   /**
-  * Método que determina el mensaje que envíará el robot.
-  * @return mensaje la nueva cadena que se envía al Robot.
+  * Método que nos dice si el robot ya ha reabastecido.
+  * @return false si no reabastecio, de lo contrario true.
   */
   public boolean getYaReabastecí() {
     return this.yaReabastecí;

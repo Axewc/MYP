@@ -5,7 +5,7 @@
 public class RecibiendoOrden implements EstadoRobot{
 
     //robot para cambiar de estados.
-    Robot robot = new Robot();
+    Robot robot;
 
     //constructor para que el robot cambie adecuadamente de estados.
     public RecibiendoOrden(Robot nuevoRobot){

@@ -5,10 +5,10 @@
  */
 public class Caminando implements EstadoRobot{
 
-    //Robot auxiliar para cambiar de estados
+    /*Robot auxiliar para cambiar de estados*/
     Robot robot;
 
-    //constructor para que el robot cambie adecuadamente de estados
+    /*constructor para que el robot cambie adecuadamente de estados.*/
     public Caminando(Robot nuevoRobot){
 	robot = nuevoRobot;
     }

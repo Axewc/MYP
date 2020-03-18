@@ -5,7 +5,7 @@
 public class Suspendido implements EstadoRobot{
 
     //robot auxiliar para cambiar de estados.
-    Robot robot = new Robot();
+    Robot robot;
 
     //Constructor para que el robot cambie apropiadamente de estados.
     public Suspendido(Robot nuevoRobot){
