@@ -6,7 +6,7 @@
 public class Caminando implements EstadoRobot{
 
     //Robot auxiliar para cambiar de estados
-    Robot robot = new Robot();
+    Robot robot;
 
     //constructor para que el robot cambie adecuadamente de estados
     public Caminando(Robot nuevoRobot){
@@ -29,11 +29,16 @@ public class Caminando implements EstadoRobot{
     public void reabastecer(){
 	System.out.println("El robot pasa a reabastecerse");
 	robot.asignarEstadoRobot(robot.getEstadoReabasteciendo());
+  robot.setYaReabasteci(true);
     }
 
     public void trabajar(){
-	System.out.println("El robot va a trabajar.");
-	robot.asignarEstadoRobot(robot.getEstadoTrabajando());
+      if(!robot.getYaReabastecí()) {
+        System.out.println("El robot no puede ir a trabajar.");
+      } else {
+	       System.out.println("El robot va a trabajar.");
+	       robot.asignarEstadoRobot(robot.getEstadoTrabajando());
+        }
     }
 
 }

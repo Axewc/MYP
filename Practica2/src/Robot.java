@@ -12,6 +12,8 @@ public class Robot {
   EstadoRobot reabasteciendo;
   EstadoRobot trabajando;
   EstadoRobot estadoActual;
+  boolean yaReabastecí;
+
   /*Mensaje que estará mandando el Robot*/
   private String mensaje;
 
@@ -29,6 +31,8 @@ public class Robot {
     this.reabasteciendo = new Reabasteciendo(this);
     /*Instancia el estado Trabajando y sus métodos*/
     this.trabajando = new Trabajando(this);
+    this.estadoActual = suspendido;
+    this.yaReabastecí = false;
   }
   /**
   * Método que determina el mensaje que recibe el Robot.
@@ -44,6 +48,21 @@ public class Robot {
   public String getMensaje() {
     return this.mensaje;
   }
+  /**
+  * Método que determina el mensaje que recibe el Robot.
+  * @param mensaje la nueva cadena que se envía al Robot.
+  */
+  public void setYaReabasteci(boolean yaReabastecí) {
+    this.yaReabastecí = yaReabastecí;
+  }
+  /**
+  * Método que determina el mensaje que envíará el robot.
+  * @return mensaje la nueva cadena que se envía al Robot.
+  */
+  public boolean getYaReabastecí() {
+    return this.yaReabastecí;
+  }
+
   /**
   * Método general para actualizar el estado del Robot.
   */
