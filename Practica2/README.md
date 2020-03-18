@@ -24,6 +24,7 @@ el número de clases puede ser demasiado.
 
 Template: El "Debugging" del código y el entendimiento del flujo del mismo puede ser confuso en ocasiones. Se pueden
 llegar a implementar metodos que no deberian ser implementados o no implementar ningún metodo abstracto ni siquiera.
+
 ---------------------------------------------------
 Notas
 ---------------------------------------------------
