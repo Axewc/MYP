@@ -1,0 +1,31 @@
+Dittuu ataca a Korby. Puntos de vida restantes: 93
+Korby ataca a Dittuu. Puntos de vida restantes: 94
+Aparece Rayquaza. Habilidad: Ataque de Viento
+Dittuu absorbe a Rayquaza. Habilidades de Dittuu: [Ataque de Viento]
+Dittuu ataca a Korby. Puntos de vida restantes: 84
+Korby ataca a Dittuu. Puntos de vida restantes: 88
+Dittuu ataca a Korby. Puntos de vida restantes: 75
+Korby ataca a Dittuu. Puntos de vida restantes: 82
+Dittuu ataca a Korby. Puntos de vida restantes: 66
+Korby ataca a Dittuu. Puntos de vida restantes: 76
+Dittuu ataca a Korby. Puntos de vida restantes: 57
+Aparece King Dedede. Habilidad: Ataque de Martillo
+Korby absorbe a King Dedede. Habilidades de Korby: [Ataque de Martillo]
+Korby ataca a Dittuu. Puntos de vida restantes: 71
+Dittuu ataca a Korby. Puntos de vida restantes: 48
+Korby ataca a Dittuu. Puntos de vida restantes: 66
+Dittuu ataca a Korby. Puntos de vida restantes: 39
+Korby ataca a Dittuu. Puntos de vida restantes: 61
+Aparece Garchomp. Habilidad: Ataque de Tierra
+Dittuu absorbe a Garchomp. Habilidades de Dittuu: [Ataque de Viento, Ataque de Tierra]
+Dittuu ataca a Korby. Puntos de vida restantes: 30
+Korby ataca a Dittuu. Puntos de vida restantes: 56
+Dittuu ataca a Korby. Puntos de vida restantes: 21
+Korby ataca a Dittuu. Puntos de vida restantes: 51
+Dittuu ataca a Korby. Puntos de vida restantes: 12
+Korby ataca a Dittuu. Puntos de vida restantes: 46
+Dittuu ataca a Korby. Puntos de vida restantes: 3
+Korby ataca a Dittuu. Puntos de vida restantes: 41
+Dittuu ataca a Korby. Puntos de vida restantes: 0
+Dittuu ha ganado el combate.
+El combate ha terminado. El ganador es Dittuu
