@@ -9,6 +9,9 @@ import com.cheemsmart.model.Producto;
 
 import java.util.Scanner;
 
+/**
+ * Controlador de la aplicación CheemsMart.
+ */
 public class CheemsMartController {
     private Cliente clienteActual;
     private CatalogoProxy catalogoProxy;
@@ -17,6 +20,11 @@ public class CheemsMartController {
         this.catalogoProxy = new CatalogoProxy();
     }
 
+    /**
+     * Inicia sesión de un cliente en la aplicación.
+     *
+     * @param cliente Cliente que desea iniciar sesión.
+     */
     public void iniciarSesion(Cliente cliente) {
         this.clienteActual = cliente;
         // Selección de estrategia según el país del cliente
@@ -27,49 +35,59 @@ public class CheemsMartController {
         mostrarMenu(discountStrategy);
     }
 
+    /**
+     * Muestra el menú de la aplicación.
+     * @param discountStrategy
+     */
     private void mostrarMenu(DiscountStrategy discountStrategy) {
-        Scanner scanner = new Scanner(System.in);
-        int opcion;
+        try (Scanner scanner = new Scanner(System.in)) {
+            int opcion;
 
-        do {
-            System.out.println("1. Ver catálogo");
-            System.out.println("2. Realizar compra");
-            System.out.println("3. Salir");
-            opcion = scanner.nextInt();
+            do {
+                System.out.println("1. Ver catálogo");
+                System.out.println("2. Realizar compra");
+                System.out.println("3. Salir");
+                opcion = scanner.nextInt();
 
-            switch (opcion) {
-                case 1:
-                    catalogoProxy.obtenerCatalogo().forEach(System.out::println);
-                    break;
-                case 2:
-                    realizarCompra(discountStrategy);
-                    break;
-                case 3:
-                    System.out.println("Gracias por visitar CheemsMart. ¡Hasta luego!");
-                    break;
-                default:
-                    System.out.println("Opción no válida.");
-            }
-        } while (opcion != 3);
+                switch (opcion) {
+                    case 1:
+                        catalogoProxy.obtenerCatalogo().forEach(System.out::println);
+                        break;
+                    case 2:
+                        realizarCompra(discountStrategy);
+                        break;
+                    case 3:
+                        System.out.println("Gracias por visitar CheemsMart. ¡Hasta luego!");
+                        break;
+                    default:
+                        System.out.println("Opción no válida.");
+                }
+            } while (opcion != 3);
+        }
     }
 
+    /**
+     * Realiza una compra de un producto.
+     * @param discountStrategy
+     */
     private void realizarCompra(DiscountStrategy discountStrategy) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese el número del producto que desea comprar:");
-        int index = scanner.nextInt() - 1;
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Ingrese el número del producto que desea comprar:");
+            int index = scanner.nextInt() - 1;
 
-        if (index >= 0 && index < catalogoProxy.obtenerCatalogo().size()) {
-            Producto producto = catalogoProxy.obtenerCatalogo().get(index);
-            double precioConDescuento = discountStrategy.applyDiscount(producto);
+            if (index >= 0 && index < catalogoProxy.obtenerCatalogo().size()) {
+                Producto producto = catalogoProxy.obtenerCatalogo().get(index);
+                double precioConDescuento = discountStrategy.applyDiscount(producto);
 
-            if (clienteActual.getSaldo() >= precioConDescuento) {
-                clienteActual.setSaldo(clienteActual.getSaldo() - precioConDescuento);
-                System.out.println("Compra exitosa. Se ha descontado " + precioConDescuento + " de su saldo.");
+                if (clienteActual.getSaldo() >= precioConDescuento) {
+                    clienteActual.setSaldo(clienteActual.getSaldo() - precioConDescuento);
+                    System.out.println("Compra exitosa. Se ha descontado " + precioConDescuento + " de su saldo.");
+                } else {
+                    System.out.println("Saldo insuficiente.");
+                }
             } else {
-                System.out.println("Saldo insuficiente.");
+                System.out.println("Producto no encontrado.");
             }
-        } else {
-            System.out.println("Producto no encontrado.");
         }
     }
 }
