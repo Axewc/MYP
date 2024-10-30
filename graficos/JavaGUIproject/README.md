@@ -278,8 +278,6 @@ java Main
 
 Esto mostrará una ventana con componentes dispuestos en cada región. Con `JFrame` y `JPanel` como base, tienes la flexibilidad para estructurar interfaces más complejas.
 
-¿Te gustaría seguir con más detalles sobre otros `LayoutManagers`, o prefieres explorar cómo responder a eventos de usuario, como hacer clic en un botón?
-
 ## 3. Componentes Interactivos
 
 Los componentes interactivos son fundamentales para construir interfaces gráficas que permitan la entrada y visualización de datos. Aquí exploraremos tres componentes comunes: `JButton`, `JTextField`, y `JLabel`.
