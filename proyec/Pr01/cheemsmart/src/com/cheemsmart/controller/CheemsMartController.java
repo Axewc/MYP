@@ -7,6 +7,7 @@ import com.cheemsmart.strategy.MexicoDiscountStrategy;
 import com.cheemsmart.view.ClienteView;
 import com.cheemsmart.model.Producto;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -27,6 +28,9 @@ public class CheemsMartController {
      */
     public void iniciarSesion(Cliente cliente) {
         this.clienteActual = cliente;
+
+        Scanner scanner = new Scanner(System.in);
+        mostrarMenu(cliente, scanner);
         // Selección de estrategia según el país del cliente
         DiscountStrategy discountStrategy = new MexicoDiscountStrategy(); // Ejemplo para México
 
@@ -34,21 +38,18 @@ public class CheemsMartController {
         view.mostrarSaludo();
         mostrarMenu(discountStrategy);
     }
-
+    
     /**
      * Muestra el menú de la aplicación.
      * @param discountStrategy
      */
-    private void mostrarMenu(DiscountStrategy discountStrategy) {
-        try (Scanner scanner = new Scanner(System.in)) {
-            int opcion;
-
-            do {
+        public void mostrarMenu(Cliente cliente, Scanner scanner) {
+        while (true) {
+            try {
                 System.out.println("1. Ver catálogo");
                 System.out.println("2. Realizar compra");
                 System.out.println("3. Salir");
-                opcion = scanner.nextInt();
-
+                int opcion = scanner.nextInt();
                 switch (opcion) {
                     case 1:
                         catalogoProxy.obtenerCatalogo().forEach(System.out::println);
@@ -58,11 +59,17 @@ public class CheemsMartController {
                         break;
                     case 3:
                         System.out.println("Gracias por visitar CheemsMart. ¡Hasta luego!");
-                        break;
+                        return;
                     default:
-                        System.out.println("Opción no válida.");
+                        System.out.println("Opción no válida. Intente de nuevo.");
                 }
-            } while (opcion != 3);
+            } catch (NoSuchElementException e) {
+                System.err.println("Entrada no válida. Intente de nuevo.");
+                scanner.next(); // Limpiar la entrada no válida
+            } catch (Exception e) {
+                System.err.println("Ocurrió un error: " + e.getMessage());
+                e.printStackTrace();
+            }
         }
     }
 

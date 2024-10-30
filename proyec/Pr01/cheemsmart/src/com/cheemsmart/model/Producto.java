@@ -18,7 +18,7 @@ public class Producto {
 
     /**
      * Obtiene el nombre del producto.
-     * @return
+     * @return nombre
      */
     public String getNombre() {
         return nombre;
