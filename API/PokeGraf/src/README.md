@@ -1,10 +1,3 @@
-Claro, aquí tienes una versión más detallada del archivo
-
-README.md
-
- que incluye una explicación más profunda sobre cómo funcionan y se realizan las llamadas a la API:
-
-```markdown
 # Proyecto PokeGraf
 
 ## Introducción
