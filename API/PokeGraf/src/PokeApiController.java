@@ -7,4 +7,8 @@ public class PokeApiController {
         String jsonResponse = PokeApiClient.getPokemonData(pokemonName);
         return JsonParser.parseString(jsonResponse).getAsJsonObject();
     }
+
+    public static String[] getGameVersions() throws Exception {
+        return PokeApiClient.getGameVersions();
+    }
 }
