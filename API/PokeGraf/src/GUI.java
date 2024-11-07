@@ -10,6 +10,10 @@ import com.google.gson.JsonArray;
 
 public class GUI {
 
+    /**
+     * Método principal que crea la ventana de la interfaz gráfica
+     * @param args Argumentos de la línea de comandos
+     */
     public static void main(String[] args) {
         // Establecer el look and feel del sistema
         try {
@@ -29,28 +33,39 @@ public class GUI {
         frame.setVisible(true);
     }
 
+
+    /**
+     * Método que coloca los componentes en el panel
+     * @param panel Panel en el que se colocarán los componentes
+     */
     private static void placeComponents(JPanel panel) {
+
+        // Crear un GroupLayout para el panel
         GroupLayout layout = new GroupLayout(panel);
         panel.setLayout(layout);
         layout.setAutoCreateGaps(true);
         layout.setAutoCreateContainerGaps(true);
 
+        // Crear los componentes
         JLabel userLabel = new JLabel("Nombre Pokemon:");
         userLabel.setFont(new Font("Arial", Font.BOLD, 14));
         JTextField pokemonNameText = new JTextField(20);
         pokemonNameText.setFont(new Font("Arial", Font.PLAIN, 14));
 
+        // Crear un JComboBox para seleccionar la versión del juego
         JLabel versionLabel = new JLabel("Versión del Juego:");
         versionLabel.setFont(new Font("Arial", Font.BOLD, 14));
         JComboBox<String> versionComboBox = new JComboBox<>();
         versionComboBox.setFont(new Font("Arial", Font.PLAIN, 14));
 
+        // Crear un botón para realizar la búsqueda
         JButton searchButton = new JButton("Buscar");
         searchButton.setFont(new Font("Arial", Font.BOLD, 14));
         searchButton.setBackground(Color.LIGHT_GRAY);
         searchButton.setOpaque(true);
         searchButton.setBorderPainted(false);
 
+        // Crear un JTextArea para mostrar los resultados
         JTextArea resultArea = new JTextArea();
         resultArea.setLineWrap(true);
         resultArea.setWrapStyleWord(true);
@@ -65,12 +80,12 @@ public class GUI {
                 versionComboBox.addItem(version);
             }
             // Añadir manualmente las versiones "scarlet" y "violet"
-            versionComboBox.addItem("scarlet");
-            versionComboBox.addItem("violet");
+            versionComboBox.addItem("scarlet-violet");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        // Acción que se ejecuta al presionar el botón de búsqueda
         ActionListener searchAction = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String pokemonName = pokemonNameText.getText();
@@ -155,8 +170,10 @@ public class GUI {
             }
         };
 
+        // Asignar la acción al botón de búsqueda
         searchButton.addActionListener(searchAction);
 
+        // Permitir buscar al presionar la tecla Enter
         pokemonNameText.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -165,6 +182,7 @@ public class GUI {
             }
         });
 
+        // Responsivo para el eje X
         layout.setHorizontalGroup(
             layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -177,6 +195,7 @@ public class GUI {
                     .addComponent(scrollPane))
         );
 
+        // Responsivo para el eje Y
         layout.setVerticalGroup(
             layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)

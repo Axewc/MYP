@@ -7,10 +7,23 @@ import com.google.gson.JsonParser;
 import java.net.URI;
 import com.google.gson.JsonArray;
 
+/**
+ * Clase que se encarga de realizar peticiones a la API de Pokemon
+ */
 public class PokeApiClient {
 
+    // URL base de la API de Pokemon
     private static final String API_URL = "https://pokeapi.co/api/v2/";
 
+
+    /**
+     * Método que realiza una petición HTTP GET a la API de Pokemon para obtener los
+     * datos de un Pokemon
+     * 
+     * @param pokemonNamela cadena con el nombre del Pokemon
+     * @return una cadena con los datos del Pokemon en formato JSON
+     * @throws Exception si ocurre un error en la solicitud HTTP
+     */
     public static String getPokemonData(String pokemonName) throws Exception {
         URI uri = new URI(API_URL + "pokemon/" + pokemonName);
         URL url = uri.toURL();
@@ -35,6 +48,12 @@ public class PokeApiClient {
         }
     }
 
+    /**
+     * Método que obtiene el nombre, el peso y la altura de un Pokemon a partir de los datos en formato JSON
+     * @param movesArray Arreglo de movimientos del Pokemon
+     * @param version Versión del juego
+     * @return una cadena con los movimientos del Pokemon en la versión especificada
+     */
     public static String getLevelUpMoves(JsonArray movesArray, String version) {
         StringBuilder moves = new StringBuilder();
         moves.append(String.format("%-20s %-10s\n", "Movimiento", "Nivel"));
@@ -56,6 +75,11 @@ public class PokeApiClient {
         return moves.toString();
     }
     
+    /**
+     * Método que realiza una petición HTTP GET a la API de Pokemon para obtener las versiones del juego
+     * @return un arreglo de cadenas con las versiones del juego
+     * @throws Exception si ocurre un error en la solicitud HTTP
+     */
     public static String[] getGameVersions() throws Exception {
         URI uri = new URI(API_URL + "version-group/");
         URL url = uri.toURL();
