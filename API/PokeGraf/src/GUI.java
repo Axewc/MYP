@@ -21,23 +21,19 @@ public class GUI {
     }
 
     private static void placeComponents(JPanel panel) {
-        panel.setLayout(null);
+        GroupLayout layout = new GroupLayout(panel);
+        panel.setLayout(layout);
+        layout.setAutoCreateGaps(true);
+        layout.setAutoCreateContainerGaps(true);
 
         JLabel userLabel = new JLabel("Nombre Pokemon:");
-        userLabel.setBounds(10, 20, 120, 25);
-        panel.add(userLabel);
-
         JTextField pokemonNameText = new JTextField(20);
-        pokemonNameText.setBounds(150, 20, 165, 25);
-        panel.add(pokemonNameText);
-
         JButton searchButton = new JButton("Buscar");
-        searchButton.setBounds(10, 80, 150, 25);
-        panel.add(searchButton);
-
         JTextArea resultArea = new JTextArea();
-        resultArea.setBounds(10, 110, 350, 150);
-        panel.add(resultArea);
+        resultArea.setLineWrap(true);
+        resultArea.setWrapStyleWord(true);
+        resultArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(resultArea);
 
         ActionListener searchAction = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -69,5 +65,25 @@ public class GUI {
                 }
             }
         });
+
+        layout.setHorizontalGroup(
+            layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(userLabel)
+                    .addComponent(searchButton))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(pokemonNameText)
+                    .addComponent(scrollPane))
+        );
+
+        layout.setVerticalGroup(
+            layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(userLabel)
+                    .addComponent(pokemonNameText))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchButton)
+                    .addComponent(scrollPane))
+        );
     }
 }

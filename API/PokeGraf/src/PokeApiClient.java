@@ -37,13 +37,17 @@ public class PokeApiClient {
 
     public static String getLevelUpMoves(JsonArray movesArray) {
         StringBuilder moves = new StringBuilder();
+        moves.append(String.format("%-20s %-10s\n", "Movimiento", "Nivel"));
+        moves.append("-------------------- ----------------\n");
         for (int i = 0; i < movesArray.size(); i++) {
             JsonObject move = movesArray.get(i).getAsJsonObject();
             JsonArray versionGroupDetails = move.getAsJsonArray("version_group_details");
             for (int j = 0; j < versionGroupDetails.size(); j++) {
                 JsonObject versionDetail = versionGroupDetails.get(j).getAsJsonObject();
                 if (versionDetail.getAsJsonObject("move_learn_method").get("name").getAsString().equals("level-up")) {
-                    moves.append(move.getAsJsonObject("move").get("name").getAsString()).append("\n");
+                    String moveName = move.getAsJsonObject("move").get("name").getAsString();
+                    int levelLearnedAt = versionDetail.get("level_learned_at").getAsInt();
+                    moves.append(String.format("%-20s %-10d\n", moveName, levelLearnedAt));
                     break; // Salir del bucle interno si se encuentra "level-up"
                 }
             }
