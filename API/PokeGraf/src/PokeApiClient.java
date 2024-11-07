@@ -38,7 +38,7 @@ public class PokeApiClient {
     public static String getLevelUpMoves(JsonArray movesArray) {
         StringBuilder moves = new StringBuilder();
         moves.append(String.format("%-20s %-10s\n", "Movimiento", "Nivel"));
-        moves.append("-------------------- ----------------\n");
+        moves.append("-------------------- ----------\n");
         for (int i = 0; i < movesArray.size(); i++) {
             JsonObject move = movesArray.get(i).getAsJsonObject();
             JsonArray versionGroupDetails = move.getAsJsonArray("version_group_details");
