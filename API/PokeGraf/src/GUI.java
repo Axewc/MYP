@@ -88,7 +88,8 @@ public class GUI {
         // Acción que se ejecuta al presionar el botón de búsqueda
         ActionListener searchAction = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String pokemonName = pokemonNameText.getText();
+                String pokemonName = pokemonNameText.getText().toLowerCase().trim(); // Convertir a minúsculas
+
                 String version = versionComboBox.getSelectedItem().toString().toLowerCase().trim();
                 try {
                     JsonObject jsonObject = PokeApiController.getPokemonData(pokemonName);
@@ -105,6 +106,7 @@ public class GUI {
                         stats.append(statName).append(": ").append(baseStat).append("\n");
                     }
 
+                    // Mostrar los datos del Pokémon en el JTextArea
                     resultArea.setText(
                         "Nombre: " + jsonObject.get("name").getAsString() + "\n" +
                         "Altura: " + jsonObject.get("height").getAsInt() + "\n" +
