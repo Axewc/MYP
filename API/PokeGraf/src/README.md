@@ -191,7 +191,4 @@ Gson es una biblioteca de Java para convertir objetos Java a su representación 
 - **JsonArray**: Representa un array JSON.
 - **JsonParser**: Proporciona métodos para analizar (parsear) cadenas JSON y convertirlas en objetos Gson.
 
-```
-
-Espero que esta explicación más detallada te ayude a comprender mejor el funcionamiento y la estructura del proyecto PokeGraf. Si tienes alguna otra pregunta o necesitas más información, no dudes en preguntar. ¡Buena suerte con tu proyecto!
-```
+---
